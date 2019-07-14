@@ -58,6 +58,12 @@ $(document).ready(function() {
         },
 
     ];
+    
+    // set my timer clock to 30 sec
+    var timer = 30;
+
+    // from class demo - this will hold our interval ID when we execute the start Clock function
+    var intervalId;
 
     //var quizContainer = document.getElementById("quiz");
     var quizContainer = $("#quiz")[0];
@@ -115,6 +121,45 @@ $(document).ready(function() {
             // quizContainer.empty().append(output.join(''));
         }
 
+        // from class demo - this run function sets an interval that runs the decrement function once a second.
+        //  *****BUG FIX******** 
+        // Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
+        function startClock() {
+
+            clearInterval(intervalId);
+            intervalId = setInterval(decrement, 1000);
+        }
+
+        //  from class demo - the decrement function
+        function decrement() {
+            //  Decrease number by one.
+            timer--;
+
+            //  Show the number in the #show-number tag.
+            $("#timer").html("<h2>" + timer + "</h2>");
+
+            //  Once number hits zero...
+            if (timer === 0) {
+
+                //  ...run the stop function
+                stop();
+
+                //  Alert the user that time is up
+                alert("Time's Up!");
+
+            }
+        }
+
+        //  The stop function
+        function stop () {
+            // from class Demo 
+            // Clears our intervalId
+            // We just pass the name of the interval to the clearInterval function
+
+            clearInterval(intervalId);
+        }
+
+
 
         function showResults(questions, quizContainer, resultsContainer){
             
@@ -157,6 +202,7 @@ $(document).ready(function() {
             // console.log("Ok");
             // console.log(submitButton);
             showQuestions(questions, quizContainer);
+            startClock();
             submitButton.style.display = "none";
             doneButton.style.display = "block";
 

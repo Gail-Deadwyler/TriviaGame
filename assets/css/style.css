@@ -74,6 +74,19 @@ header {
     
 }
 
+#timer {
+    position: absolute;
+    top: 10px;
+}
+
+/* by default, hide the timer
+#timer {
+    display: none;
+    margin-left: 460px;
+    margin-top: 5px;
+    
+} */
+
 #results {
 
     /* margin-left: 25%; */
