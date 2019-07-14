@@ -1,24 +1,62 @@
 $(document).ready(function() {
 
     var myQuestions = [
+
         {
-            question: "What is 10/2?",
+            question: "Which superhero gets their powers from their power ring?",
             answers: {
-                a: '3',
-                b: '5',
-                c: '115'
+                a: 'The Flash',
+                b: 'Wonder Woman',
+                c: 'Super Girl',
+                d: 'Green Lantern'
+            },
+            correctAnswer: 'd'
+        },
+
+        {
+            question: "Which superhero's only weakness is kryptonite?",
+            answers: {
+                a: 'Wolverine',
+                b: 'Spider Man',
+                c: 'Super Man',
+                d: 'Ant Man'
+            },
+            correctAnswer: 'c'
+        },
+
+        {
+            question: "Diana Prince is the civilian identity of which superhero?",
+            answers: {
+                a: 'Wonder Woman',
+                b: 'Batgirl',
+                c: 'Elastigirl',
+                d: 'Supergirl'
+        },
+            correctAnswer: 'a'
+        },
+
+        {
+            question: "Which superhero has a butler named Alfred?",
+            answers: {
+                a: 'Wolverine',
+                b: 'Bat Man',
+                c: 'Spider Man',
+                d: 'The Flash'
             },
             correctAnswer: 'b'
         },
+
         {
-            question: "What is 30/3?",
+            question: "Which superhero owns a company called Stark Industries?",
             answers: {
-                a: '3',
-                b: '5',
-                c: '10'
+                a: 'Supergirl',
+                b: 'Captain America',
+                c: 'Super Man',
+                d: 'Iron Man'
             },
-            correctAnswer: 'c'
-        }
+            correctAnswer: 'd'
+        },
+
     ];
 
     //var quizContainer = document.getElementById("quiz");
@@ -109,7 +147,7 @@ $(document).ready(function() {
             }
 
             // show number of correct answers out of total
-            resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+            resultsContainer.innerHTML = 'You got ' + numCorrect + ' out of ' + questions.length + ' questions right';
         }
 
         // show questions right away, hide start button and display done button
