@@ -1,3 +1,7 @@
+// quiz questions taken from laffgaff.com
+// functions taken from class Demo 
+// and from youtube tutorial "how to create an online quiz - https://www.codeexplained.org/2018/10/create-multiple-choice-quiz-using-javascript.html"
+
 $(document).ready(function() {
 
     var myQuestions = [
@@ -58,7 +62,7 @@ $(document).ready(function() {
         },
 
     ];
-    
+
     // set my timer clock to 30 sec
     var timer = 30;
 
@@ -136,21 +140,22 @@ $(document).ready(function() {
             timer--;
 
             //  Show the number in the #show-number tag.
-            $("#timer").html("<h2>" + timer + "</h2>");
+            $("#timer").html("<h2> Time remaining " + timer + " secs</h2>");
 
             //  Once number hits zero...
             if (timer === 0) {
 
                 //  ...run the stop function
                 stop();
+                showResults(questions, quizContainer, resultsContainer);
 
                 //  Alert the user that time is up
-                alert("Time's Up!");
+                // alert("Time's Up!");
 
             }
         }
 
-        //  The stop function
+        //  stops the timer
         function stop () {
             // from class Demo 
             // Clears our intervalId
@@ -210,9 +215,10 @@ $(document).ready(function() {
         };
 
         
-        // clicking Done button, shows results of quiz
+        // clicking Done button, shows results of quiz and stops the timer
         doneButton.onclick = function(){
             showResults(questions, quizContainer, resultsContainer);
+            stop();
         }
 
     }
