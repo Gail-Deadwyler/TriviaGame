@@ -78,15 +78,15 @@ $(document).ready(function() {
     // var submitButton = document.getElementById("submit");
 
     // JQuery object thats wrapped around DOM object, [0] gives the raw DOM object
-    var submitButton = $("#submit")[0];
+    var startButton = $("#start")[0];
 
     // var doneButton = document.getElementById("done");
     var doneButton = $("#done")[0];
 
 // function call here
-    generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+    generateQuiz(myQuestions, quizContainer, resultsContainer, startButton);
 
-    function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+    function generateQuiz(questions, quizContainer, resultsContainer, startButton){
 
         function showQuestions(questions, quizContainer) {
             // we'll need a place to store the output and the answer choices
@@ -139,7 +139,7 @@ $(document).ready(function() {
             //  Decrease number by one.
             timer--;
 
-            //  Show the number in the #show-number tag.
+            //  Show the number in the #timer tag.
             $("#timer").html("<h2> Time remaining " + timer + " secs</h2>");
 
             //  Once number hits zero...
@@ -147,10 +147,7 @@ $(document).ready(function() {
 
                 //  ...run the stop function
                 stop();
-                showResults(questions, quizContainer, resultsContainer);
-
-                //  Alert the user that time is up
-                // alert("Time's Up!");
+                showResults(questions, quizContainer, resultsContainer);                
 
             }
         }
@@ -187,7 +184,7 @@ $(document).ready(function() {
                     numCorrect++;
                     
                     // color the answers blue
-                    answerContainers[i].style.color = 'blue';
+                    answerContainers[i].style.color = 'dark green';
                 }
                 // if answer is wrong or blank
                 else {
@@ -202,18 +199,15 @@ $(document).ready(function() {
 
         // show questions right away, hide start button and display done button
         //showQuestions(questions, quizContainer);
-       submitButton.onclick = function() {
-            // showQuestions(questions, quizContainer);
-            // console.log("Ok");
-            // console.log(submitButton);
+       startButton.onclick = function() {            
+            // console.log("Ok");            
             showQuestions(questions, quizContainer);
             startClock();
-            submitButton.style.display = "none";
+            startButton.style.display = "none";
             doneButton.style.display = "block";
 
 
         };
-
         
         // clicking Done button, shows results of quiz and stops the timer
         doneButton.onclick = function(){
